@@ -12,7 +12,7 @@ public class AirField {
 		FighterJet f2 = new FighterJet("Messerschmitt BF109", 440, 528, 2000000);
 		FighterJet f3 = new FighterJet("Vickers Warwick", 224, 2300, 900000);
 		FighterJet f4 = new FighterJet("Grumman Goblin", 207, 685, 2400000);
-		JetImpl j1 = new JetImpl("big plane", 500, 1000, 800000);
+		JetImpl j1 = new JetImpl("big plane", 50, 1000, 800000);
 
 		planes[0] = c1;
 		planes[1] = f1;
@@ -24,18 +24,15 @@ public class AirField {
 		// System.out.println();
 	}
 
-	
 	public Jet[] getPlanes() {
 		return planes;
 	}
-
 
 	public void setPlanes(Jet[] planes) {
 		this.planes = planes;
 	}
 
-
-	//add a plane
+	// ADD PLANE
 	public boolean addJet(Jet j) {
 		for (int i = 0; i < planes.length; i++) {
 			if (planes[i] == null) {
@@ -45,23 +42,62 @@ public class AirField {
 		}
 		return false;
 	}
-	
-	
-	//list all planes
+
+	// LIST ALL
 	public void listFleet() {
-		System.out.println(Jet.toString(planes));
+		for (int i = 0; i < planes.length; i++) {
+			if (planes[i] != null) {
+				String printModel = planes[i].getModel();
+				double printSpeed = planes[i].getSpeed();
+				int printRange = planes[i].getRange();
+				long printPrice = planes[i].getPrice();
+
+				System.out.println("Plane: " + printModel + ", Speed: " + printSpeed + "mph" + ", Range: " + printRange
+						+ "Price: $" + printPrice);
+
+			}
+		}
+	}
+
+	// FLY ALL
+	public void fly() {
+		for (int i = 0; i < planes.length; i++) {
+			if (planes[i] != null) {
+				String printModel = planes[i].getModel();
+				System.out.println("The " + printModel + " is in the air and can fly " + planes[i].getRange()
+						+ " miles before running out fuel.");
+			}
+		}
 	}
 	
-	
-	//fly planes 
-	
-	
-	
-	
-	//view fastest
-	//view longest range
-	//quit
-	
-	
-	
+	//FASTEST
+	public void getFastest() {
+		Jet fastest = planes[0];
+		for (int i = 1; i < planes.length; i++) {
+			if (planes[i] != null) {
+				if (planes[i].getSpeed() > fastest.getSpeed()) {
+					fastest = planes[i];
+				}
+			}
+		}
+		System.out.println(fastest.getModel() + " is the fastest plane with a speed of "+ fastest.getSpeed());
+	}
+
+	// RANGE
+	public void getFurthest() {
+		Jet furthest = planes[0];
+		for (int i = 1; i < planes.length; i++) {
+			if (planes[i] != null) {
+				if (planes[i].getRange() > furthest.getRange()) {
+					furthest = planes[i];
+				}
+			}
+		}
+		System.out.println(furthest.getModel() + " has the greatest range, flying "+ furthest.getRange() + " miles on a tank of fuel.");
+	}
+
+	// QUIT
+	public void quit() {
+		System.out.println("Thanks for visiting the airfield. Goodbye. ");
+	}
 }
