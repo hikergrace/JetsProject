@@ -102,7 +102,7 @@ public class AirField {
 				}
 			}
 		}
-		System.out.println(fastest.getModel() + " is the fastest plane with a speed of " + fastest.getSpeed());
+		System.out.println(fastest.getModel() + " is the fastest plane with a speed of " + fastest.getSpeed() + "mph.");
 	}
 
 	// RANGE
@@ -119,7 +119,7 @@ public class AirField {
 				+ " miles on a tank of fuel.");
 	}
 
-	// QUIT
+	// QUIT --- NOT USING THIS ONE
 	public void quit() {
 		System.out.println("Thanks for visiting the airfield. Goodbye. ");
 	}

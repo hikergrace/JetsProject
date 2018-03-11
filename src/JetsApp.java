@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-// launches program, calls display user menu method
+// launches the airfield, displays the menu
 
 public class JetsApp {
 	
@@ -15,7 +15,7 @@ public class JetsApp {
 	        System.out.println("1. List our current fleet");
 	        System.out.println("2. Fly the planes");
 	        System.out.println("3. View the fastest plane in the fleet");
-	        System.out.println("4. View the plane with the furthest range");
+	        System.out.println("4. View the plane with the longest range");
 	        System.out.println("5. Add your own plane");
 	        System.out.println("6. Exit the airfield");
 	        
@@ -47,14 +47,5 @@ public class JetsApp {
             }
 		} 
 	}
-	
-		
 }
 	
-	
-	
-	
-	
-	
-	
-

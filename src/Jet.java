@@ -22,10 +22,11 @@ public abstract class Jet {
 		System.out.println("Plane: " + this.model + " is in the air.");
 	}
 
-	public double getSpeedInMach() {
-		double mach = speed * 0.001303;
-		return mach;
-	}
+//	not applicable with current fleet
+//	public double getSpeedInMach() {
+//		double mach = speed * 0.001303;
+//		return mach;
+//	}
 
 	public static char[] toString(Jet[] planes) {
 		return null;
