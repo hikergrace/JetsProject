@@ -1,4 +1,6 @@
+
 // logic to print out fastest, add plane
+import java.util.Scanner;
 
 public class AirField {
 
@@ -12,16 +14,14 @@ public class AirField {
 		FighterJet f2 = new FighterJet("Messerschmitt BF109", 440, 528, 2000000);
 		FighterJet f3 = new FighterJet("Vickers Warwick", 224, 2300, 900000);
 		FighterJet f4 = new FighterJet("Grumman Goblin", 207, 685, 2400000);
-		JetImpl j1 = new JetImpl("big plane", 50, 1000, 800000);
+		// JetImpl j1 = new JetImpl("big plane", 50, 1000, 800000);
 
 		planes[0] = c1;
 		planes[1] = f1;
 		planes[2] = f2;
 		planes[3] = f3;
 		planes[4] = f4;
-		planes[5] = j1;
-
-		// System.out.println();
+		// planes[5] = j1;
 	}
 
 	public Jet[] getPlanes() {
@@ -33,14 +33,34 @@ public class AirField {
 	}
 
 	// ADD PLANE
-	public boolean addJet(Jet j) {
+	public void addJet() {
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Add a plane: ");
+		System.out.println("Model: ");
+		String model = kb.next();
+		System.out.println("Cruising speed: ");
+		double speed = kb.nextDouble();
+		System.out.println("Range: ");
+		int range = kb.nextInt();
+		System.out.println("Price: ");
+		long price = kb.nextLong();
+
+		Jet j = new JetImpl(model, speed, range, price);
 		for (int i = 0; i < planes.length; i++) {
 			if (planes[i] == null) {
 				planes[i] = j;
-				return true;
+				// to add to array
+				String printModel = planes[i].getModel();
+				double printSpeed = planes[i].getSpeed();
+				int printRange = planes[i].getRange();
+				long printPrice = planes[i].getPrice();
+
+				System.out.println("PLANE: " + printModel + "\tSPEED: " + printSpeed + "mph" + "\tRANGE: " + printRange
+						+ "\tPRICE: $" + printPrice);
+
 			}
 		}
-		return false;
+
 	}
 
 	// LIST ALL
@@ -52,8 +72,8 @@ public class AirField {
 				int printRange = planes[i].getRange();
 				long printPrice = planes[i].getPrice();
 
-				System.out.println("Plane: " + printModel + ", Speed: " + printSpeed + "mph" + ", Range: " + printRange
-						+ "Price: $" + printPrice);
+				System.out.println("PLANE: " + printModel + "\tSPEED: " + printSpeed + "mph" + "\tRANGE: " + printRange
+						+ "\tPRICE: $" + printPrice);
 
 			}
 		}
@@ -69,8 +89,8 @@ public class AirField {
 			}
 		}
 	}
-	
-	//FASTEST
+
+	// FASTEST
 	public void getFastest() {
 		Jet fastest = planes[0];
 		for (int i = 1; i < planes.length; i++) {
@@ -80,7 +100,7 @@ public class AirField {
 				}
 			}
 		}
-		System.out.println(fastest.getModel() + " is the fastest plane with a speed of "+ fastest.getSpeed());
+		System.out.println(fastest.getModel() + " is the fastest plane with a speed of " + fastest.getSpeed());
 	}
 
 	// RANGE
@@ -93,7 +113,8 @@ public class AirField {
 				}
 			}
 		}
-		System.out.println(furthest.getModel() + " has the greatest range, flying "+ furthest.getRange() + " miles on a tank of fuel.");
+		System.out.println(furthest.getModel() + " has the greatest range, flying " + furthest.getRange()
+				+ " miles on a tank of fuel.");
 	}
 
 	// QUIT

@@ -1,5 +1,5 @@
 
-public class FighterJet extends Jet {
+public class FighterJet extends Jet implements CombatReady {
 
 	public FighterJet() {
 		super();
@@ -9,4 +9,9 @@ public class FighterJet extends Jet {
 		super(model, speed, range, price);
 	}
 
+	@Override
+	public void fight() {
+		System.out.println(super.getModel() + " is ready to fight.");		
+	}
+	
 }
