@@ -8,6 +8,7 @@ public class JetsApp {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Welcome to the World War II Classic Planes Airfield");
 	
+		AirField af = new AirField();
 	    int choice;
 	    while(true){
 	        System.out.println();
@@ -19,7 +20,6 @@ public class JetsApp {
 	        System.out.println("5. Add your own plane");
 	        System.out.println("6. Exit the airfield");
 	        
-	        AirField af = new AirField();
 	        choice = kb.nextInt();
 
 	    switch(choice){
